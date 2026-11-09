@@ -1,0 +1,14 @@
+#!/bin/sh
+# lp falso: registra los argumentos; con -i simula hold/resume sobre FAKE_JOBS.
+echo "lp $@" >> "${FAKE_LOG:-/dev/null}"
+if [ "$1" = "-i" ]; then
+  id="${2##*-}"
+  case "$4" in hold) st=pending-held;; resume) st=pending;; esac
+  grep -q "^$id," "$FAKE_JOBS" 2>/dev/null || { echo "lp: Job #$id does not exist" >&2; exit 1; }
+  sed -i "/^$id,/s/,pending-held,\|,pending,/,$st,/" "$FAKE_JOBS"
+  exit 0
+fi
+case "$FAKE_MODO" in
+  error) echo "lp: Error - The printer or class does not exist." >&2; exit 1;;
+esac
+echo "request id is Canon_G2110-42 (1 file(s))"

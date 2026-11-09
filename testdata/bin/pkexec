@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "pkexec $@" >> "${FAKE_LOG:-/dev/null}"
+exec "$@"

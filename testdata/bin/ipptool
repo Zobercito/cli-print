@@ -1,0 +1,8 @@
+#!/bin/sh
+[ "$FAKE_IPPTOOL" = "falla" ] && { echo "ipptool: fallo" >&2; exit 1; }
+echo "job-id,job-name,job-state,job-state-reasons,job-originating-user-name,job-k-octets,time-at-creation"
+case "$*" in
+  *which=completed*) [ -n "$FAKE_DONE" ] && [ -f "$FAKE_DONE" ] && cat "$FAKE_DONE";;
+  *) [ -n "$FAKE_JOBS" ] && [ -f "$FAKE_JOBS" ] && cat "$FAKE_JOBS";;
+esac
+exit 0

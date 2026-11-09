@@ -1,0 +1,23 @@
+{
+  "nota": "Verificado sobre el PPD de referencia. Con otro controlador, comprueba las opciones de nuevo.",
+  "verificado": "2026-10-16",
+  "metodo": "hash de rastertogutenprint.5.3 (etapa final del driver) contra base; la etapa raster por si sola no ve opciones del driver",
+  "opciones": {
+    "ColorModel":        { "estado": "real",     "valores": ["CMY", "RGB", "Gray", "Black", "CMYK", "KCMY"], "nota": "cambia el raster" },
+    "PageSize":          { "estado": "real" },
+    "StpOrientation":    { "estado": "real",     "valores": ["Portrait", "Landscape", "UpsideDown", "Seascape"] },
+    "MediaType":         { "estado": "real",     "nota": "cambia la salida; efecto fisico por confirmar en papel" },
+    "StpFullBleed":      { "estado": "real",     "nota": "solo cambia en el driver; confirmar en papel" },
+    "StpiShrinkOutput":  { "estado": "real",     "nota": "Crop y Expand dan igual en esta pagina de prueba" },
+    "StpImageType":      { "estado": "real",     "nota": "no se ofrece en el menu (poca utilidad)" },
+    "StpBrightness":     { "estado": "real",     "nota": "no se ofrece en el menu" },
+    "StpContrast":       { "estado": "real",     "nota": "no se ofrece en el menu" },
+    "StpSaturation":     { "estado": "real",     "nota": "no se ofrece en el menu" },
+    "StpInkType":        { "estado": "real-sin-confirmar", "nota": "Gray cambia la salida del driver; en el test anterior (solo raster) parecia ignorada. Podria usar solo tinta negra: NO ofrecer hasta probar en papel" },
+    "StpQuality":        { "estado": "ignorada" },
+    "StpResolution":     { "estado": "ignorada" },
+    "StpColorCorrection":{ "estado": "ignorada" },
+    "page-ranges":       { "estado": "real", "origen": "lp" },
+    "copies":            { "estado": "real", "origen": "lp" }
+  }
+}

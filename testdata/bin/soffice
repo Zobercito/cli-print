@@ -1,0 +1,7 @@
+#!/bin/sh
+# soffice falso: copia FAKE_PDF como doc.pdf en --outdir.
+echo "soffice $@" >> "${FAKE_LOG:-/dev/null}"
+[ "$FAKE_SOFFICE" = "cuelga" ] && sleep 30
+[ "$FAKE_SOFFICE" = "falla" ] && exit 0
+while [ $# -gt 0 ]; do case "$1" in --outdir) out="$2"; shift;; esac; shift; done
+cp "$FAKE_PDF" "$out/doc.pdf"

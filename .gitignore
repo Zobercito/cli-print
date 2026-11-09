@@ -1,0 +1,14 @@
+# Binario compilado en la raíz
+/print
+/print.test
+
+# Artefactos de Go
+*.out
+coverage.txt
+/dist/
+
+# Editores y sistema
+.DS_Store
+.idea/
+.vscode/
+*.swp

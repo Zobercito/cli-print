@@ -1,0 +1,25 @@
+#!/bin/sh
+parada() { [ "$FAKE_MODO" = "parada" ] || { [ -n "$FAKE_PARADA_FILE" ] && [ -f "$FAKE_PARADA_FILE" ]; }; }
+case "$1 $2" in
+  "-r "*) echo "scheduler is running";;
+  "-p Canon_G2110")
+    if parada; then
+      printf 'printer Canon_G2110 disabled since Fri 16 Oct 2026 17:16:08 -\n\tUnplugged or turned off\n'
+    else echo "printer Canon_G2110 is idle.  enabled since Fri 16 Oct 2026 17:16:08"; fi;;
+  "-l -p")
+    if parada; then
+      printf 'printer Canon_G2110 disabled since Fri 16 Oct 2026 17:16:08 -\n\tUnplugged or turned off\n'
+    else echo "printer Canon_G2110 is idle.  enabled since Fri 16 Oct 2026 17:16:08"; fi
+    [ -n "$FAKE_ALERTS" ] && printf '\tAlerts: %s\n' "$FAKE_ALERTS";;
+  "-a Canon_G2110")
+    if parada; then echo "Canon_G2110 not accepting requests since x"; else echo "Canon_G2110 accepting requests since x"; fi;;
+  "-d "*) echo "system default destination: Canon_G2110";;
+  "-v "*) [ -n "$FAKE_URI" ] && echo "device for Canon_G2110: $FAKE_URI" || { echo "lpstat: sin device" >&2; exit 1; };;
+  "-W not-completed")
+    if [ -n "$FAKE_JOBS" ] && [ -f "$FAKE_JOBS" ]; then
+      while IFS=, read -r id resto; do echo "Canon_G2110-$id  fran  26624  Fri 16 Oct 2026 17:15:54"; done < "$FAKE_JOBS"
+    else [ "$FAKE_MODO" = "activo" ] && echo "Canon_G2110-42  fran  1024  Fri"; fi;;
+  "-W completed") [ "$FAKE_MODO" != "activo" ] && echo "Canon_G2110-42  fran  1024  Fri";;
+  *) echo "lpstat: Invalid destination name in list \"$2\"" >&2; exit 1;;
+esac
+exit 0

@@ -1,0 +1,8 @@
+#!/bin/sh
+echo "cancel $@" >> "${FAKE_LOG:-/dev/null}"
+[ "$FAKE_CANCEL" = "denegado" ] && { echo "cancel: Unauthorized" >&2; exit 1; }
+id="${1##*-}"
+if grep -q "^$id," "$FAKE_JOBS" 2>/dev/null; then
+  grep -v "^$id," "$FAKE_JOBS" > "$FAKE_JOBS.n"; mv "$FAKE_JOBS.n" "$FAKE_JOBS"; exit 0
+fi
+echo "cancel: cancel-job failed: Job #$id does not exist" >&2; exit 1

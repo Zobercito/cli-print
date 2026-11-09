@@ -1,0 +1,4 @@
+#!/bin/sh
+# lpoptions falso para las pruebas: imprime lo que haya en FAKE_LPOPTIONS.
+[ -n "$FAKE_LPOPTIONS" ] && printf '%s\n' "$FAKE_LPOPTIONS"
+exit 0

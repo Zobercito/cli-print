@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "cupsaccept $@" >> "${FAKE_LOG:-/dev/null}"
+[ -n "$FAKE_PARADA_FILE" ] && rm -f "$FAKE_PARADA_FILE"
+exit 0

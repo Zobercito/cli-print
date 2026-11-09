@@ -1,0 +1,7 @@
+# ~/.config/print/config.toml  (todo es opcional)
+# impresora     = "Mi_Impresora"    # vacío/omitido = cola predeterminada de CUPS
+tinta           = "color"         # color | normal | gris
+animacion       = true
+ascii           = false           # forzar bordes y símbolos ASCII
+giro            = "libro"         # libro (borde largo, por defecto) | tortita (borde corto)
+timeout_soffice = 60              # segundos máximos para convertir con LibreOffice
