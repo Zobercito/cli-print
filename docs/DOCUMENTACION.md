@@ -1,4 +1,4 @@
-# Documentación completa de `print`
+# Documentación completa de CLI-Print
 
 Menú de impresión para Linux. Esta guía cuenta todo: la configuración de
 referencia, cómo se usa, cómo está hecho por dentro, lo que se probó con papel y
@@ -125,8 +125,8 @@ Calibri o Cambria se recoloca y puede cambiar de número de páginas).
 
 ### Compilar e instalar
 ```bash
-git clone https://github.com/Zobercito/print.git
-cd print
+git clone https://github.com/Zobercito/cli-print.git
+cd cli-print
 make build
 make install        # ~/.local/bin/print
 ```

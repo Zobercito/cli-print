@@ -8,7 +8,7 @@
 > **Modelo de referencia:** los valores concretos (nombre de cola, ID USB, URI) son
 > el ejemplo con el que se probó. `print` funciona con cualquier cola de CUPS.
 
-# Especificación: `print` — menú interactivo de impresión para Linux
+# Especificación: CLI-Print — menú interactivo de impresión para Linux
 
 Documento de implementación (v2). Pásaselo a otra IA o úsalo tú mismo como guía.
 

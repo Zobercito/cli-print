@@ -1,4 +1,4 @@
-module github.com/Zobercito/print
+module github.com/Zobercito/cli-print
 
 go 1.27.0
 

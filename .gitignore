@@ -1,6 +1,7 @@
-# Binario compilado en la raíz
+# Binarios compilados en la raíz
 /print
 /print.test
+/cli-print
 
 # Artefactos de Go
 *.out

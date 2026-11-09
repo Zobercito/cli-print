@@ -1,10 +1,21 @@
-# print
+# CLI-Print
 
 Menú de terminal para imprimir documentos en Linux sin recordar la sintaxis de
 `lp`: eliges el archivo, ajustas cómo imprimirlo y confirmas. Funciona con
 cualquier cola de CUPS.
 
 > Documentación completa: [`docs/DOCUMENTACION.md`](docs/DOCUMENTACION.md)
+
+## Vista rápida
+
+Buscador difuso: escribe parte del nombre y la lista se filtra al instante.
+
+![Buscador difuso](docs/demos/buscar.gif)
+
+Menú de impresión: copias, papel, tinta, doble cara y un resumen de lo que se va
+a imprimir.
+
+![Menú de impresión](docs/demos/menu.gif)
 
 ## Características
 
@@ -52,8 +63,8 @@ sudo pacman -S gutenprint foomatic-db-gutenprint-ppds
 Con `make`:
 
 ```bash
-git clone https://github.com/Zobercito/print.git
-cd print
+git clone https://github.com/Zobercito/cli-print.git
+cd cli-print
 make build
 make install        # copia el binario a ~/.local/bin/print
 ```
@@ -64,10 +75,13 @@ O directamente con Go:
 CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o ~/.local/bin/print .
 ```
 
-Si el repositorio está publicado con etiquetas:
+El binario se llama siempre **`print`**. Con `go install`, Go toma el último
+elemento del módulo como nombre del ejecutable (`cli-print`), así que renómbralo
+si quieres el nombre corto:
 
 ```bash
-go install github.com/Zobercito/print@latest
+go install github.com/Zobercito/cli-print@latest
+mv "$(go env GOPATH)/bin/cli-print" ~/.local/bin/print
 ```
 
 Desinstalar: `make uninstall` y, si quieres borrar caché, estado y
