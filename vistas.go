@@ -97,7 +97,8 @@ func (m *model) vReanudar(inner int) (string, []string, string) {
 
 func (m *model) vBuscador(inner int) (string, []string, string) {
 	c := []string{m.busq.View(), ""}
-	vis := max(5, m.h-12)
+	// La lista muestra como mucho 10 documentos; el resto se alcanza bajando.
+	vis := min(10, max(5, m.h-12))
 	ini := 0
 	if m.cur >= vis {
 		ini = m.cur - vis + 1

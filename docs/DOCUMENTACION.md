@@ -176,7 +176,8 @@ arranque ─► (¿doble cara pendiente? → reanudar) ─► buscador ─► an
 1. **Arranque:** revisa CUPS, la cola, la conexión USB, LibreOffice, `pdfinfo` y las
    fuentes. Los problemas salen como una línea de aviso en el menú.
 2. **Buscador:** busca mientras escribes, sin distinguir mayúsculas ni tildes. Solo
-   muestra documentos (nunca imágenes) de la carpeta actual.
+   muestra documentos (nunca imágenes) de la carpeta actual. La lista enseña como
+   mucho **10 documentos**; con `↑↓` recorres el resto.
 3. **Analizando:** convierte a PDF si hace falta y lee páginas y tamaño de papel.
 4. **Menú:** las opciones (sección 5), con un resumen de lo que va a pasar.
 5. **Vista previa:** lo que se va a imprimir, en palabras. `o` muestra la orden `lp`.

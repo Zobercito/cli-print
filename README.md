@@ -21,7 +21,8 @@ a imprimir.
 
 - Lista los documentos de **la carpeta actual** (PDF, Word, LibreOffice, texto,
   HTML, Markdown, CSV…) y los convierte a PDF con LibreOffice si hace falta.
-- Búsqueda difusa al escribir: sin distinguir mayúsculas ni tildes.
+- Búsqueda difusa al escribir: sin distinguir mayúsculas ni tildes. La lista
+  muestra como mucho 10 documentos; con `↑↓` recorres el resto.
 - **Doble cara manual**: imprime primero las caras de atrás y luego las de
   adelante para que, al girar el bloque por un borde largo, la página 1 quede
   arriba. Con un número impar de páginas añade sola una hoja en blanco.

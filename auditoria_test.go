@@ -349,6 +349,42 @@ func TestFlujoDobleCaraCompleto(t *testing.T) {
 	}
 }
 
+func TestListaMuestraDiezYDesplaza(t *testing.T) {
+	conFalsos(t, "")
+	m := nuevoModelo(context.Background(), configPorDefecto(), "", false, false, false)
+	m.h = 40
+	for i := 0; i < 15; i++ {
+		n := string(rune('a'+i)) + ".pdf"
+		m.archivos = append(m.archivos, Archivo{Ruta: "/x/" + n, Nombre: n})
+	}
+	m.coin = Buscar(m.archivos, "")
+	cuenta := func(lineas []string) int {
+		n := 0
+		for _, l := range lineas {
+			if strings.Contains(l, ".pdf") {
+				n++
+			}
+		}
+		return n
+	}
+	_, lineas, _ := m.vBuscador(80)
+	if n := cuenta(lineas); n != 10 {
+		t.Fatalf("se esperaban 10 filas, hay %d", n)
+	}
+	m.cur = 12
+	_, lineas, _ = m.vBuscador(80)
+	if n := cuenta(lineas); n != 10 {
+		t.Fatalf("tras bajar, se esperaban 10 filas, hay %d", n)
+	}
+	texto := strings.Join(lineas, "\n")
+	if strings.Contains(texto, "a.pdf") {
+		t.Error("la lista no se desplazó: a.pdf sigue visible")
+	}
+	if !strings.Contains(texto, "m.pdf") {
+		t.Error("la fila seleccionada (m.pdf) debe estar visible")
+	}
+}
+
 func TestTeclasDelBuscadorYDelMenu(t *testing.T) {
 	m := modeloBase(t)
 	m.pant = pBuscador
